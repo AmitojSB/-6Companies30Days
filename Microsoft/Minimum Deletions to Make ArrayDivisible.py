@@ -1,0 +1,11 @@
+from collections import deque 
+from typing import List
+class Solution:
+  def minOperations(self, nums: List[int], numsDivide: List[int]) -> int:
+    gcd = functools.reduce(math.gcd, numsDivide)
+
+    for i, num in enumerate(sorted(nums)):
+      if gcd % num == 0:
+        return i
+
+    return -1
